@@ -2,11 +2,9 @@
 """Download CEF distribution for prebuild pipeline."""
 
 import argparse
-import hashlib
 import json
 import pathlib
 import platform
-import shutil
 import sys
 import tarfile
 import urllib.request
