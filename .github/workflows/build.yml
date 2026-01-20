@@ -23,7 +23,8 @@ jobs:
         run: |
           CEF_VERSION=$(cat cef_download/CEF_VERSION)
           # Rename to short path to avoid Windows path length issues
-          mv cef_download/cef_binary_* cef
+          CEF_DIR=$(ls -d cef_download/cef_binary_* | head -1)
+          mv "$CEF_DIR" cef
           echo "dir=cef" >> "$GITHUB_OUTPUT"
           echo "version=$CEF_VERSION" >> "$GITHUB_OUTPUT"
 
