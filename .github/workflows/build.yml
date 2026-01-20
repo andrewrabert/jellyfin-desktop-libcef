@@ -17,13 +17,14 @@ jobs:
       - name: Download CEF
         run: python scripts/download_cef.py --platform windows64 --output-dir cef_download
 
-      - name: Get CEF version
+      - name: Get CEF version and shorten path
         id: cef
         shell: bash
         run: |
-          CEF_DIR=$(ls -d cef_download/cef_binary_* | head -1)
           CEF_VERSION=$(cat cef_download/CEF_VERSION)
-          echo "dir=$CEF_DIR" >> "$GITHUB_OUTPUT"
+          # Rename to short path to avoid Windows path length issues
+          mv cef_download/cef_binary_* cef
+          echo "dir=cef" >> "$GITHUB_OUTPUT"
           echo "version=$CEF_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Setup MSVC
