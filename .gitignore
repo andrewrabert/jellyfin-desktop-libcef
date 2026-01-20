@@ -1,0 +1,15 @@
+# Build artifacts
+cef_download/
+*.zip
+*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Local notes
+CLAUDE.local.md
